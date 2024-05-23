@@ -19,7 +19,7 @@ Using the module:
 
 ```
 module "static_website" {
-  source           = "git::https://github.com/aaronchu/acsf-aws-static-website.git"
+  source           = "git::https://github.com/aaronchu/acsf-aws-static-website.git?ref=v0.1.0"
   primary_fqdn     = "mydomainname.com"
   alternative_fqdn = "www.mydomainname.com"
   dns_zone_name    = "mydomainname.com"
