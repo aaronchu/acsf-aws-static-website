@@ -12,6 +12,13 @@ Establish a static website hosted on AWS at minimal cost and complexity.
 | `primary_fqdn` | `string` | `mydomainname.com` | (required) The primary FQDN for the website. |
 | `alternative_fqdn` | `string` | `www.mydomainname.com` | The alternative FQDN for the website (needs to be in the same zone as the primary FQDN). Default value is empty. |
 | `dns_zone_name` | `string` | `mydomainname.com` |(required) The name of the DNS zone to create. |
+| `redirect_alternative_fqdn` | `bool` | `true` | 301-redirect `alternative_fqdn` to `primary_fqdn` (keeping path and query string) instead of serving the site on both. Default `false`. |
+| `not_found_page_path` | `string` | `/404.html` | Page to serve, with status 404, for missing objects. Default empty, which serves S3's 403 error. |
+| `browser_cache_control` | `string` | `public, max-age=3600` | `Cache-Control` header for objects that don't set their own. Default empty, which sends none. |
+
+## Behavior
+
+Responses are compressed (gzip and Brotli) and cached at the edge with the AWS-managed `CachingOptimized` policy.
 
 ## Usage
 
